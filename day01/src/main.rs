@@ -17,7 +17,7 @@ fn main() {
 
     // Part 2, top three
     let mut total = 0;
-    for _n in 1..4 {
+    for _n in 0..3 {
         total += heapify_calories.pop().unwrap();
     }
     println!("{}", total);

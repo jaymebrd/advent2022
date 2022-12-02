@@ -48,7 +48,7 @@ fn play_rps(lines: Lines) -> (i32, i32) {
     let rsp_score: HashMap<_, _> = collection! {"B X" => 1, "B Y" => 2, "B Z" => 3 , "A X" => 3, "A Y" => 1, "A Z" => 2 , "C X" => 2, "C Y" => 3, "C Z"=> 1};
     let wld_score: HashMap<char, _> = collection! { 'X' => 0, 'Y' => 3, 'Z' => 6 };
 
-    for line in lines{
+    for line in lines {
         score_p1 += game_score[line];
         score_p2 += rsp_score[line];
 
@@ -56,5 +56,5 @@ fn play_rps(lines: Lines) -> (i32, i32) {
         score_p1 += rps_score[&rps];
         score_p2 += wld_score[&rps]
     }
-    return (score_p1, score_p2)
+    return (score_p1, score_p2);
 }

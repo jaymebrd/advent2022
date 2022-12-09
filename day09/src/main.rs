@@ -2,7 +2,6 @@ use std::collections::HashSet;
 use std::env;
 use std::fs;
 
-
 fn main() {
     let args: Vec<String> = env::args().collect();
     let config = parse_config(&args);
@@ -32,16 +31,16 @@ fn main() {
             hy += dy;
             kpos[0] = (hx, hy);
 
-            for k in 1..knots{
-            kpos[k] = tmove(kpos[k-1], kpos[k]);
-                if kpos[k] == kpos[k-1]{
-                    break
+            for k in 1..knots {
+                kpos[k] = tmove(kpos[k - 1], kpos[k]);
+                if kpos[k] == kpos[k - 1] {
+                    break;
                 }
                 p1.insert(kpos[1]);
-                p2.insert(kpos[kpos.len()-1]);
+                p2.insert(kpos[kpos.len() - 1]);
             }
         }
-        }
+    }
     println!("{}", p1.len());
     println!("{}", p2.len());
 }
@@ -53,7 +52,16 @@ fn tmove(hpos: (i32, i32), tpos: (i32, i32)) -> (i32, i32) {
         return tpos;
     }
 
-    let moves = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)];
+    let moves = [
+        (0, 1),
+        (0, -1),
+        (1, 0),
+        (-1, 0),
+        (1, 1),
+        (1, -1),
+        (-1, 1),
+        (-1, -1),
+    ];
     let mut best_move = None;
     let mut best_dist = std::i32::MAX;
     for (dx, dy) in moves {
